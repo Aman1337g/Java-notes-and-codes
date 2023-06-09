@@ -48,3 +48,37 @@ Some applications are designed for corporate organizations with the intent to co
 - Multi-thread: multi-threading is an important feature provided by java for creating web applications.
 - High-performance: Java uses Just-In-Time compiler thus giving us a high performance.
 
+## 1.2. Installation & Setup
+ 
+### Step 1
+
+Before starting the installation processes, it is advisable to check if your PC already has Java installed. To do this, open the command prompt and type the following:
+```
+C:\Users\yourName>java -version
+```
+**Output:**
+```
+java version "20.0.1" 2023-04-18
+Java(TM) SE Runtime Environment (build 20.0.1+9-29)
+Java HotSpot(TM) 64-Bit Server VM (build 20.0.1+9-29, mixed mode, sharing)
+```
+
+### Step 2
+
+If your system does not have Java installed, download it from the official website: https://www.oracle.com/java/technologies/downloads/
+
+### Step 3
+
+Run the downloaded file to install Java on your machine. 
+
+### Step 4
+
+- Right click on This PC (My Computer).
+- Click on properties.
+- Go to Advanced System Settings.
+- Under this click on Environment Variables.
+- Inside System Variables, select Path and click on Edit.
+- Give the path of directory where Java is installed followed by a \bin.
+- Repeat step 1 to check if Java has been set up and running on your machine.
+ 
+Java programs can be written in normal text editor like a notepad or more complicated editors(IDE’s) like Netbeans, Eclipse or Visual Studio Code.
