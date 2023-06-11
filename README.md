@@ -152,3 +152,68 @@ The Java Runtime Environment (JRE) provides java libraries, the JVM and other fi
 **C. Java Development Kit (JDK)**
 
 The Java Development Kit (JDK) is a superset of JRE and is used to create java applications. There are three JDK provided by Oracle: Java Enterprise Edition (Java EE), Java Standard Edition (Java SE), and Java Mobile Edition (Java ME).
+
+## 1.4. Basic Java Syntax
+
+It is particularly important to follow the appropriate syntax while writing java code, as we might get errors for the slightest mistake in our code.
+
+1. **The class name should be the same as that of the name of the java file**. And each line of code must be written inside a class. 
+
+Example: program where file name and class name is different.
+```java
+package syntax1;
+
+public class DEtails {
+    public static void main(String[] args) {
+        System.out.println("Java program with diff file name and class name");
+      }
+}
+```
+Output
+```
+The public type Details must be defined in its own file.
+```
+
+Example: program where file name and class name is same.
+```java
+package syntax1;
+
+public class Details {
+    public static void main(String[] args) {
+        System.out.println("Java program with same file name and class name");
+      }
+}
+```
+Output
+```
+Java program with same file name and class name
+```
+As we can see from both the examples that even a slightest change in the name of file and class name still gives us an error.
+
+2. **Each block of code is indented within the curly brackets{}.**
+
+Example: see how each block is indented inside the parent block
+```java
+package syntax1;
+
+public class Details {
+    public static void main(String[] args) {
+        System.out.println("Java program with same file name and class name");
+      }
+}
+```
+
+3. **Each java file must contain a main method that is needed to execute a java file.**
+
+Example: java code without a main method gives an error
+```java
+package syntax1;
+
+public class Details {
+    System.out.println("Java program with same file name and class name");
+}
+```
+Output
+```
+Build failed
+```
