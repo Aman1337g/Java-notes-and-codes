@@ -3,7 +3,7 @@
 1. Introduction
     - [Java Overview](#11-java-overview)
     - [Installation & Setup](#12-installation--setup)
-    - []()
+    - [JVM, JRE, JDK](#13-jvm-jre-jdk)
     - []()
     - []()
     - []()
@@ -134,3 +134,21 @@ Run the downloaded file to install Java on your machine.
 - Repeat step 1 to check if Java has been set up and running on your machine.
  
 Java programs can be written in normal text editor like a notepad or more complicated editors(IDE’s) like Netbeans, Eclipse or Visual Studio Code.
+
+## 1.3. JVM, JRE, JDK
+ 
+![jvm,jre,jdk.jpg](./images/jvm_jdk_jre.png)
+
+### **A. Java Virtual Machine (JVM)**
+
+The Java Virtual Machine (JVM) is a virtual machine that provides a runtime environment to execute java bytecode.
+
+The java program is converted into java bytecode which is then translated by the JVM into machine code which can be then understood by the CPU to get the output.
+
+**B. Java Runtime Environment (JRE)**
+
+The Java Runtime Environment (JRE) provides java libraries, the JVM and other files and documents that are needed to run java applications.
+
+**C. Java Development Kit (JDK)**
+
+The Java Development Kit (JDK) is a superset of JRE and is used to create java applications. There are three JDK provided by Oracle: Java Enterprise Edition (Java EE), Java Standard Edition (Java SE), and Java Mobile Edition (Java ME).
