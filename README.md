@@ -4,8 +4,8 @@
     - [Java Overview](#11-java-overview)
     - [Installation & Setup](#12-installation--setup)
     - [JVM, JRE, JDK](#13-jvm-jre-jdk)
-    - []()
-    - []()
+    - [Basic Java Syntax](#14-basic-java-syntax)
+    - [Java Comments](#15-java-comments)
     - []()
 
 2. Variables, Operators & User I/O
@@ -216,4 +216,57 @@ public class Details {
 Output
 ```
 Build failed
+```
+
+## 1.5. Java Comments
+
+Comments in any programming language are ignored by the compiler or the interpreter. A comment is a part of the coding file that the programmer does not want to execute, rather the programmer uses it to either explain a block of code or to avoid the execution of a specific part of code while testing.
+
+There are two types of coments:
+
+- Single-line comment
+- Multi-line comment
+ 
+### **A. Single Line Comments**
+
+To write a single-line comment just add a ‘**//**’ at the start of the line.
+
+Example:
+```java
+package syntax1;
+public class Details {
+    public static void main(String[] args) {
+        //This is a single line comment
+        System.out.println("Hello World!!!");
+      }
+}
+```
+Output
+```
+Hello World!!!
+```
+
+### **B. Multi Line Comments**
+
+To write a multi-line comment just add a ‘**/*…….*/**’ at the start of the line.
+
+Example:
+```java
+package syntax1;
+
+public class Details {
+    public static void main(String[] args) {
+        /*This
+         * is 
+         * a
+         * Multiline 
+         * Comment
+         */
+        System.out.println("Hello World!!!");
+      }
+}
+```
+Output
+```
+Hello World!!!
 ```
