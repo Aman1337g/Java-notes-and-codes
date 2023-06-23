@@ -6,7 +6,7 @@
     - [JVM, JRE, JDK](#13-jvm-jre-jdk)
     - [Basic Java Syntax](#14-basic-java-syntax)
     - [Java Comments](#15-java-comments)
-    - []()
+    - [Java Datatypes](#16-java-data-types)
 
 2. Variables, Operators & User I/O
     - [](12)
@@ -270,3 +270,38 @@ Output
 ```
 Hello World!!!
 ```
+
+## 1.6. Java Data Types
+ 
+There are two forms of datatypes in Java: 
+- Primitive data type
+- Non-Primitive data type
+
+![java_datatype.png](./images/java_datatype.png)
+ 
+- **bool**: Boolean data type consists of true and false values.
+- **char**: char datatype is used to store characters.
+- **byte**: The main purpose of byte is used to save memory and consists values in the range -128 to 127.
+- **short**: consists values in the range -32768 to 32767.
+- **int**: consists values in the range -2,147,483,648 to 2,147,483,647.
+- **long**: consists values in the range -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+- **float**: can be used to deal with decimal numbers. Always recommended to use float rather than double because float saves memory.
+- **double**: can be used to deal with decimal numbers.
+ 
+
+Data Type|Size|Range
+|--|--|--|
+bool|1 bit|true, false
+char|2 byte|a….z, A….Z
+byte|1 byte|-128 to 128
+short|2 byte|-32768 to 32767
+int|4 byte|-2,147,483,648 to 2,147,483,647
+long|8 byte|-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+float|4 byte|±1.4E-45 to ±3.4E38
+double|8 byte|±4.9E-324 to ±1.8E308
+
+> Note - Range lies from **-2^(n)** to **2^(n)-1** , where n is no. of bytes.
+
+[Jump to Index](#table-of-contents)
+
+<br>
