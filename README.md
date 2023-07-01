@@ -9,7 +9,7 @@
     - [Java Datatypes](#16-java-data-types)
 
 2. Variables, Operators & User I/O
-    - [](12)
+    - [Java Variables](#21-java-variables)
     - [](11)
 
 3. Conditional Statements
@@ -305,3 +305,180 @@ double|8 byte|±4.9E-324 to ±1.8E308
 [Jump to Index](#table-of-contents)
 
 <br>
+
+## 2.1. Java Variables
+
+Variables are containers that store information that can be manipulated and referenced later by the programmer within the code. Java variables have a data type associated with them which can tell us about the size and layout of the variable’s memory.
+
+### Syntax
+```java
+datatype variable = value;
+```
+
+There are three types of variables in java:
+
+- Local variable
+- Instance variable
+- Class/Static variable
+ 
+
+### A. Local Variables
+A variable that is declared inside the body of the method or constructor is called a local variable. It is called so because the extent of a local variable lies only within the method or constructor within which it is created and other methods in the class cannot access it.
+
+Example
+```java
+public class LocalVariableExample {
+    public static void main(String[] args) {
+        int x = 10; // Declaring and initializing a local variable 'x' of type int
+
+        System.out.println("The value of x is: " + x);
+
+        {
+            int y = 5; // Declaring and initializing a local variable 'y' of type int inside a block
+            System.out.println("The value of y is: " + y);
+        }
+
+        // 'y' is not accessible outside the block, so trying to access it here would result in a compilation error
+
+        int z; // Declaring a local variable 'z' of type int
+        z = 15; // Assigning a value to 'z' later
+
+        System.out.println("The value of z is: " + z);
+    }
+}
+```
+
+Output
+```
+The value of x is: 10
+The value of y is: 5
+The value of z is: 15
+```
+
+**If the local variable is accessed outside the method or constructor within which it is creaed, then it gives an error.**
+
+Example
+```java
+public class test {
+    public void localVariable() {
+        String name = "Ben";
+        int marks = 95;
+    }
+
+    public void notLocalVariable() {
+        System.out.println(name + " Scored " + marks + "%.");
+    }
+
+    public static void main(String[] args) {
+        test vt = new test();
+        vt.localVariable();
+        vt.notLocalVariable();
+    }
+}
+```
+Output
+```
+test.java:8: error: cannot find symbol
+        System.out.println(name + " Scored " + marks + "%.");
+                           ^
+  symbol:   variable name
+  location: class test
+test.java:8: error: cannot find symbol
+        System.out.println(name + " Scored " + marks + "%.");
+                                               ^
+  symbol:   variable marks
+  location: class test
+2 errors
+``` 
+
+### B. Instance Variables
+In Java, instance variables (also known as member variables or fields) are variables declared within a class but outside of any method, constructor, or block. They hold data that is specific to each instance of the class, meaning that each object created from the class will have its own set of instance variables.
+
+Instance variables are declared at the class level and are associated with an object or instance of the class. They are accessible throughout the class and can be used by any method within the class.
+
+Here's an example of declaring and using instance variables in Java:
+
+```java
+public class test {
+    // Instance variables
+    private int age;
+    private String name;
+
+    // Constructor
+    public test(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+
+    // Method using instance variables
+    public void printDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+
+    public static void main(String[] args) {
+        // Create an instance of test
+        test obj = new test(25, "John");
+
+        obj.printDetails();
+
+        // Access and modify instance variables
+        obj.age = 20;
+        obj.name = "Harshit Goel";
+
+        // Call a method that uses instance variables
+        obj.printDetails();
+    }
+}
+```
+Output
+```
+Name: John
+Age: 25
+Name: Harshit Goel
+Age: 20
+```
+
+In this example, `age` and `name` are instance variables of the `MyClass` class. They are accessed and modified using the dot notation (`obj.age`, `obj.name`) within the `main()` method. The `printDetails()` method also uses these instance variables to display the object's details. Each instance of the class can have its own unique values for these instance variables.
+
+### C. Class/Static Variables:
+An static variable is declared inside the class but outside a method or a constructor. It is similar to a instance variable except that it is declared using the keyword **static**. These variables are accessible by all methods or constructors that are inside the class.
+
+Example
+```java
+public class variableType {
+
+    public static String name;
+    public static int marks;
+
+    public static void main(String[] args) {
+        name = "Aman Gupta";
+        marks = 95;
+        System.out.println(name + " Scored " + marks + "%.");
+    }
+}
+```
+Output
+```
+Aman Gupta Scored 95%.
+```
+If variable is not declared static then it gives an error.
+
+Example
+```java
+public class variableType {
+    public String name;
+    public int marks;
+
+    public static void main(String[] args) {
+        name = "Aman Gupta";
+        marks = 95;
+        System.out.println(name + " Scored " + marks + "%.");
+    }
+}
+```
+
+Output
+```
+Cannot make a static refrence to a non-static field
+```
