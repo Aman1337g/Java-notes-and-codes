@@ -10,7 +10,8 @@
 
 2. Variables, Operators & User I/O
     - [Java Variables](#21-java-variables)
-    - [](11)
+    - [Java Operators](#22-java-operators)
+    - [User Input/Output](#23-user-inputoutput)
 
 3. Conditional Statements
     - [](24)
@@ -512,7 +513,7 @@ Multiplication assignment|*=|a*=b    or    a=a*b
 Division assignment|/=|a//=b    or    a=a//b
 Modulus assignment|%=|a%=b    or    a=a%b
 Bitwise AND assignment|&=|a&=b    or    a=a&b
-Bitwise inclusive OR assignment||=|a|=b    or    a=a|b
+Bitwise inclusive OR assignment|\|=|a\|=b    or    a=a\|b
 Bitwise exclusive OR assignment|^=|a^=b    or    a=a^b
 Right Shift assignment|>>=|a>>=b    or    a=a>>b
 Left Shift assignment|<<=|a<<=b    or    a=a<<b
@@ -523,7 +524,7 @@ Bitwise operators are used to deal with binary operations.
 Name|Operator|Example
 |---|---|---|
 Bitwise AND|&|a & b
-Bitwise OR|||a | b
+Bitwise OR|\||a \| b
 Bitwise NOT|~|~a
 Bitwise XOR|^|a ^ b
 Bitwise right shift|>> |a>>
@@ -597,3 +598,121 @@ Output
 ```
 number lesser than five
 ```
+
+## 2.3. User Input/Output
+ 
+### Taking Input
+To use the Scanner class, we need to import the `java.util.Scanner` package.
+```java
+import java.util.Scanner;
+```
+Now the Scanner class has been imported. We create an object of the Scanner class to use the methods within it.
+```java
+Scanner sc = new Scanner(System.in)
+```
+The **System.in** is passed as a parameter and is used to take input.
+
+> Note: Your object can be named anything, there is no specific convention to follow. But we normally name our object **sc** for easy use and implementation.
+
+ 
+There are four ways to create an object of the Scanner class. Let us see how we can create Scanner objects:
+
+- A. Reading keyboard input
+```java
+Scanner sc = new Scanner(System.in)
+```
+- B. Reading String input
+```java
+Scanner sc = new Scanner(String str)
+```
+- C. Reading input stream
+```java
+Scanner sc = new Scanner(InputStream input)
+```
+- D. Reading File input
+```java
+Scanner sc = new Scanner(File file)
+```
+### So how does a Scanner class work?
+
+The scanner object reads the entered inputs and divides the string into tokens. The tokens are usually divided based upon whitespaces and newline.
+
+Example:
+```
+Susan
+19
+78.95
+O
+```
+The above input will be divided as “Susan”, “19”, “78.95” and “O”. Then the Scanner object will iterate over each token and then it will read each token depending upon the type of Scanner object created.
+
+Now, we have seen how Scanner object is created, different ways to create it, how it reads input, and how it works. Let us see different methods to take inputs.
+
+Below are the methods that belong to the scanner class:
+
+Method|Description
+---|---
+nextLine()|Accepts string value
+next()|Accept string till whitespace
+nextInt()|Accepts int value
+nextFloat()|Accepts float value
+nextDouble()|Accepts double value
+nextLong()|Accepts long value
+nextShort()|Accepts short value
+nextBoolean()|Accepts Boolean value
+nextByte()|Accepts Byte value
+
+Example
+```java
+import java.util.Scanner;
+
+public class ScannerExample {
+	public static void main(String[] args) {
+		
+        Scanner sc = new Scanner(System.in);
+ 
+        System.out.println("Enter Name, RollNo, Marks, Grade");
+        
+        String name = sc.nextLine();		//used to read line
+        int RollNo = sc.nextInt();			//used to read int
+        double Marks = sc.nextDouble();		//used to read double
+        char Grade = sc.next().charAt(0);	//used to read only 1 character at index 0 of the string
+ 
+        System.out.println("Name: "+name);
+        System.out.println("Roll No: "+RollNo);
+        System.out.println("Marks: "+Marks);
+        System.out.println("Grade: "+Grade);
+        
+        sc.close();
+	}
+}
+```
+Output
+```
+Enter Name, RollNo, Marks, Grade
+Riya Yadav
+13
+97.25
+A+
+Name: Riya Yadav
+Roll No: 13
+Marks: 97.25
+Grade: A
+```
+
+Entering the wrong type of input, or just messing up with the order of inputs in the above example will give an error.
+
+For same example when we change the order of inputs it gives the following output:
+```
+Enter Name, RollNo, Marks, Grade
+aman
+gupta
+Exception in thread "main" java.util.InputMismatchException
+        at java.base/java.util.Scanner.throwFor(Scanner.java:947)
+        at java.base/java.util.Scanner.next(Scanner.java:1602)
+        at java.base/java.util.Scanner.nextInt(Scanner.java:2267)
+        at java.base/java.util.Scanner.nextInt(Scanner.java:2221)
+        at ScannerExample.main(ScannerExample.java:11)
+```
+
+<br>
