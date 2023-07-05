@@ -731,6 +731,8 @@ Decision-making involves evaluating a condition to a Boolean value and making a 
 
 ### 1. if statement
 
+![if_statement](./images/if_statement.png)
+
 In a simple if statement, a block of code inside the if statement is only executed if the condition evaluates to true.
 
 Syntax
