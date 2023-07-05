@@ -14,7 +14,7 @@
     - [User Input/Output](#23-user-inputoutput)
 
 3. Conditional Statements
-    - [](24)
+    - [if Statement](#31-if-statement)
     - [](23)
     - [](22)
     - [](21)
@@ -715,4 +715,59 @@ Exception in thread "main" java.util.InputMismatchException
         at ScannerExample.main(ScannerExample.java:11)
 ```
 
+[Jump to Index](#table-of-contents)
+
 <br>
+
+## 3.1. if Statement
+
+Decision-making involves evaluating a condition to a Boolean value and making a decision based on it. The basic idea revolves around executing the block of code whose condition evaluates to true. Below are the types of decision-making statements:
+
+- if statement
+- if…..else statement
+- if…..else if statement
+- nested if statements
+- switch statement
+
+### 1. if statement
+
+In a simple if statement, a block of code inside the if statement is only executed if the condition evaluates to true.
+
+Syntax
+```java
+if (condition) {
+    //block of code
+}
+```
+Example
+```java
+public class JavaIf {
+    public static void main(String[] args) {
+        String name = "Anurag Nagvanshi";
+        int Roll = 2;
+        if (name == "Anurag Nagvanshi" && Roll == 2) {  // && - logical AND (is True when both the statements are True)
+            System.out.println("Details of Anurag Nagvanshi.");
+        }
+    }
+}
+```
+Output
+```
+Details of Anurag Nagvanshi.
+```
+Example
+```java
+public class JavaIf {
+    public static void main(String[] args) {
+        String name = "Mohan";
+        int Roll = 25;
+        if (name == "Mohan" && Roll == 26) {
+            System.out.println("Details of Mohan.");
+        }
+    }
+}
+```
+Output:
+```
+Above code won’t give an output.
+```
