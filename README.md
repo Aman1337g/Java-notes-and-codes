@@ -773,3 +773,38 @@ Output:
 ```
 Above code won’t give an output.
 ```
+
+## 3.2. if…..else Statement
+
+In an if…..else statement we have two blocks of code, wherein the former block of code (code inside if statement) is executed if condition evaluates to true and the later block of code (code inside else statement) is executed if the condition is false.
+
+Syntax
+```java
+if (condition) {
+	//block of code
+} else {
+	//block of code
+}
+```
+
+![if_else.png](./images/if-else_statement.png)
+
+Example
+```java
+public class JavaIfElse {
+    public static void main(String[] args) {
+        String name = "Mohan";
+        int Roll = 25;
+        if (name == "Mohan" && Roll == 26) {
+            System.out.println("Details of Mohan.");
+        } else {
+            System.out.println("Invalid details.");
+        }
+    }
+}
+```
+
+Output
+```
+Invalid details.
+```
