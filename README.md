@@ -17,7 +17,7 @@
     - [if Statement](#31-if-statement)
     - [if…..else Statement](#32-ifelse-statement)
     - [if…..else if Statement](#33-ifelse-if-statement)
-    - [](21)
+    - [Nested if Statements](#34-nested-if-statements)
 
 4. Iteration Statements
     - [](35)
@@ -852,4 +852,30 @@ public class JavaIf {
 Output
 ```
 Details of Soham.
+```
+
+## 3.4. Nested if Statements
+
+if statements inside other if statements are called nested if statements.
+
+Example
+```java
+public class Nested {
+    public static void main(String[] args) {
+        String name = "Aman Kumar Gupta";
+        int Roll = 6;
+        int marks = 85;
+        if (name == "Aman Kumar Gupta" && Roll == 6) {
+            if (marks > 35) {
+                System.out.println("Aman Kumar Gupta has been promoted to next class.");
+            } else {
+                System.out.println("Aman Kumar Gupta needs to give re-exam.");
+            }
+        }
+    }
+}
+```
+Output
+```
+Aman Kumar Gupta has been promoted to next class.
 ```
