@@ -940,3 +940,118 @@ Today is Sunday
 [Jump to Index](#table-of-contents)
 
 <br>
+
+## 4.1. for Loop
+
+Loops in any programming language are used to execute a block of code again and again until a base condition is achieved. As soon as a base condition is satisfied the loop is terminated and the control is returned to the main body of the program.
+
+There are three types of loops in java:
+
+- for loop
+- while loop
+- do……while loop
+ 
+
+### for loop
+
+![for loop flowchart](./images/java-for-loop.png)
+
+Whenever a loop needs to be run a specific number of times, we use a for loop.
+
+#### Syntax
+```java
+for (initializeVariable, testCondition, increment/decrement){
+    //block of code
+}
+```
+- initializeVariable: initialize a new variable or use an already existing one.
+- testCondition: It checks the testing condition of the loop after each iteration and returns a Boolean value, which determines if the loop should be terminated or not.
+- Increment/decrement: It is used to increment or decrement the variable after each iteraton.
+ 
+
+Example
+```java
+public class ForLoop1 {
+    public static void main(String[] args) {
+        for(int i=1; i<=10; i++) {
+            System.out.println("2 * "+ i+ " = "+ 2*i);
+        }
+    }
+}
+```
+Output
+```
+2 * 1 = 2
+2 * 2 = 4
+2 * 3 = 6
+2 * 4 = 8
+2 * 5 = 10
+2 * 6 = 12
+2 * 7 = 14
+2 * 8 = 16
+2 * 9 = 18
+2 * 10 = 20
+```
+
+We also have a special syntax for iterating through arrays and other collection objects, also called as a **for-each** loop.
+
+Syntax
+```java
+for (type variable : collectionObject){
+    //block of code
+}
+```
+
+Example
+```java
+public class ForEach1 {
+    public static void main(String[] args) {
+        int[] prime = {1,3,5,7,11,13,17,19};
+        System.out.println("Prime numbers are:");
+        for(int i : prime) {
+            System.out.println(i);
+        }
+    }
+}
+```
+Output
+```
+Prime numbers are:
+1
+3
+5
+7
+11
+13
+17
+19
+```
+
+And lastly we have an infinite for loop, wherein the expression always evaluates to true, hence running indefinitely.
+
+Example
+```java
+public class ForLoop1 {
+    public static void main(String[] args) {
+        for(int i=1; i<=10; i--) {
+            System.out.println(i);
+        }
+    }
+}
+```
+Output
+```
+1
+0
+-1
+-2
+-3
+-4
+-5
+-6
+.
+.
+.
+.
+The loop will keep on running until you halt the program.
+```
