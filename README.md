@@ -964,9 +964,9 @@ for (initializeVariable, testCondition, increment/decrement){
     //block of code
 }
 ```
-- initializeVariable: initialize a new variable or use an already existing one.
-- testCondition: It checks the testing condition of the loop after each iteration and returns a Boolean value, which determines if the loop should be terminated or not.
-- Increment/decrement: It is used to increment or decrement the variable after each iteraton.
+- **initializeVariable**: initialize a new variable or use an already existing one.
+- **testCondition**: It checks the testing condition of the loop after each iteration and returns a Boolean value, which determines if the loop should be terminated or not.
+- **Increment/decrement**: It is used to increment or decrement the variable after each iteraton.
  
 
 Example
@@ -995,7 +995,7 @@ Output
 
 We also have a special syntax for iterating through arrays and other collection objects, also called as a **for-each** loop.
 
-Syntax
+### Syntax
 ```java
 for (type variable : collectionObject){
     //block of code
@@ -1069,7 +1069,7 @@ while (baseBooleanCondition) {
 }
 ```
 
-- baseBooleanCondition: it checks if the condition is true or false after each iteration. If true, run block of code. If false, terminate the loop.
+- **baseBooleanCondition**: it checks if the condition is true or false after each iteration. If true, run block of code. If false, terminate the loop.
 
 Example
 ```java
