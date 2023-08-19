@@ -1055,3 +1055,44 @@ Output
 .
 The loop will keep on running until you halt the program.
 ```
+
+## 4.2. while Loop
+
+![java-while-loop](./images/java-while-loop.png)
+
+Whenever we are not sure about the number of times the loop needs to be run, we use a while loop. A while loop keeps on running till the condition is true, as soon as the condition is false, control is returned to the main body of the program.
+
+### Syntax
+```java
+while (baseBooleanCondition) {
+    //block of code
+}
+```
+
+- baseBooleanCondition: it checks if the condition is true or false after each iteration. If true, run block of code. If false, terminate the loop.
+
+Example
+```java
+public class WhileLoop {
+    public static void main(String[] args) {
+        int i = 10;
+        while (i>0) {
+            System.out.println(i);
+            i--;
+        }
+    }
+}
+```
+Output
+```
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+```
