@@ -147,11 +147,11 @@ The Java Virtual Machine (JVM) is a virtual machine that provides a runtime envi
 
 The java program is converted into java bytecode which is then translated by the JVM into machine code which can be then understood by the CPU to get the output.
 
-**B. Java Runtime Environment (JRE)**
+### **B. Java Runtime Environment (JRE)**
 
 The Java Runtime Environment (JRE) provides java libraries, the JVM and other files and documents that are needed to run java applications.
 
-**C. Java Development Kit (JDK)**
+### **C. Java Development Kit (JDK)**
 
 The Java Development Kit (JDK) is a superset of JRE and is used to create java applications. There are three JDK provided by Oracle: Java Enterprise Edition (Java EE), Java Standard Edition (Java SE), and Java Mobile Edition (Java ME).
 
@@ -1096,3 +1096,162 @@ Output
 2
 1
 ```
+
+## 4.3. do-while Loop
+A do…..while loop is a special kind of loop that runs the loop at least once even if the base condition is false. This is because the base condition in this loop is checked after executing the block of code. As such, even if the condition is false, the loop is bound to run atleast once. Hence, do…..while loop is also called as an **Exit Control Loop**.
+
+### Syntax
+```java
+do {
+    //block of code
+} while (baseBooleanCondition);
+```
+ 
+
+### Example 1
+```java
+public class WhileLoop {
+    public static void main(String[] args) {
+        int i = 10;
+        do {
+            System.out.println(i);
+            i--;
+        } while (i>0);
+    }
+}
+```
+Output
+```
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+``` 
+
+### Example 2
+```java
+public class WhileLoop {
+    public static void main(String[] args) {
+        int i = 10;
+        do {
+            System.out.println(i);
+            i--;
+        } while (i>10);
+    }
+}
+```
+Output
+```
+10
+As we can see, even if condition is false, the loop runs at least once.
+```
+
+## 4.4. Nested Loops
+Loops inside other loops are called nested loops.
+
+### Example
+```java
+public class Nested {
+    public static void main(String[] args) {
+        for (int i=1; i<5; i++) {
+            for (int j=1; j<5; j++) {
+                System.out.println(i+" * "+j+" = "+i*j);
+            }
+            System.out.println();
+        }
+    }
+}
+``` 
+Output
+```
+1 * 1 = 1
+1 * 2 = 2
+1 * 3 = 3
+1 * 4 = 4
+
+2 * 1 = 2
+2 * 2 = 4
+2 * 3 = 6
+2 * 4 = 8
+
+3 * 1 = 3
+3 * 2 = 6
+3 * 3 = 9
+3 * 4 = 12
+
+4 * 1 = 4
+4 * 2 = 8
+4 * 3 = 12
+4 * 4 = 16
+```
+
+## 4.5. break/continue Statement
+ 
+### break statement
+In java, **break** statement is used when working with any kind of a loop or a switch statement. It breaks out of the loop or a switch statement and returns the control to the main body of the program. In the case of nested loops, it breaks the inner loop and control is returned to the outer loop.
+
+### Example
+```java
+public class JavaBreak {
+    public static void main(String[] args) {
+        for(int n=1; n<=20; n++) {
+            if(n%2 == 0) {
+                System.out.println(n);
+                if (n == 12) {
+                    break;
+                }
+            }
+        }
+    }
+}
+```
+
+Output
+```
+2
+4
+6
+8
+10
+12
+``` 
+
+### continue statement
+The **continue** statement breaks the current iteration in the loop, if a specified condition occurs, moves to the end of the loop, and continues with the next iteration in the loop.
+
+### Example
+```java
+public class JavaContinue {
+    public static void main(String[] args) {
+        for(int n=1; n<=20; n++) {
+            if(n%2 == 0) {
+                if (n == 12) {
+                    continue;
+                }
+                System.out.println(n);
+            }
+        }
+    }
+}
+```
+
+Output
+```
+2
+4
+6
+8
+10
+14
+16
+18
+20
+```
+
+[Jump to Index](#table-of-contents)
