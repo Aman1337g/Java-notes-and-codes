@@ -1257,6 +1257,8 @@ Output
 
 [Jump to Index](#table-of-contents)
 
+<br>
+
 ## 5.1. String Basics
 Strings in java is a sequence of characters that is enclosed in double quotes (**"**`<string>`**"**). Whenever java comes across a String literal in the code, it creates a string literal with the value of string.
 
