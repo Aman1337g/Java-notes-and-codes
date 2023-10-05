@@ -21,15 +21,16 @@
     - [switch case Statements](#35-switch-case-statements)
 
 4. Iteration Statements
-    - [](35)
-    - [](34)
-    - [](33)
-    - [](32)
-    - [](31)
+    - [for loop](#41-for-loop)
+    - [while loop](#42-while-loop)
+    - [do-while loop](#43-do-while-loop)
+    - [nested loop](#44-nested-loops)
+    - [break/continue Statement](#45-breakcontinue-statement)
 
 5. Strings
-    - [](42)
-    - [](41)
+    - [String Basics](#51-string-basics)
+    - [Escape Characters](41)
+    - [String Methods]()
 
 6. Arrays
     - [](51)
@@ -1255,3 +1256,100 @@ Output
 ```
 
 [Jump to Index](#table-of-contents)
+
+## 5.1. String Basics
+Strings in java is a sequence of characters that is enclosed in double quotes (**"**`<string>`**"**). Whenever java comes across a String literal in the code, it creates a string literal with the value of string.
+
+### Example
+```java
+public class string {
+    public static void main(String[] args) {
+        String name;
+        name = "Aman Kumar Gupta";
+        System.out.println("My name is " + name);
+    }
+}
+```
+Output
+```
+My name is Aman Kumar Gupta
+``` 
+
+The same can be done using an array of characters.
+
+### Example
+```java
+public class string {
+    public static void main(String[] args) {
+        char[] name = {'a', 'm', 'a', 'n', ' ', 'k', 'u', 'm', 'a', 'r', ' ', 'g', 'u', 'p', 't', 'a', ' ', '!', '!'};
+        String welcomeMsg = new String(name);  
+        System.out.println("Welcome " + welcomeMsg);
+    }
+}
+```
+Output
+```
+Welcome aman kumar gupta !!
+``` 
+
+### **Concatenate Strings**
+Concatenation between two strings in java is done using the `+` operator.
+
+### Example
+```java
+public class string {
+    public static void main(String[] args) {
+        String fname, mname, lname;
+        fname = "Robert";
+        mname = "Downey";
+        lname = "Jr.";
+        System.out.println(fname + " " + mname + " " + lname);
+    }
+}
+```
+Output
+```
+Robert Downey Jr.
+``` 
+
+Alternatively, we can use the **concat()** method to concatenate two strings.
+
+### Example
+```java
+public class string {
+    public static void main(String[] args) {
+        String fname, mname, lname;
+        fname = "Robert";
+        mname = " Downey";
+        lname = " Jr.";
+        System.out.println(fname.concat(mname).concat(lname));
+    }
+}
+```
+Output
+```
+Robert Downey Jr.
+``` 
+
+> What if we concatenate string with an integer?
+```
+Well concatenating a string and an integer will give us a string.
+```
+### Example
+```java
+public class string {
+    public static void main(String[] args) {
+        String name;
+        int quantity;
+        quantity = 12;
+        name = " Apples";
+        System.out.println(quantity + name);
+    }
+}
+```
+Output
+```
+12 Apples
+```
+
+
