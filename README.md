@@ -29,7 +29,7 @@
 
 5. Strings
     - [String Basics](#51-string-basics)
-    - [Escape Characters](41)
+    - [Escape Characters](#52-escape-characters)
     - [String Methods]()
 
 6. Arrays
@@ -1354,4 +1354,70 @@ Output
 12 Apples
 ```
 
+# 5.2. Escape Characters
+
+Try running the code given below in your java compiler.
+```java
+public class string {
+    public static void main(String[] args) {
+        System.out.println("He said, "I believe that the Earth is Flat".");
+    }
+}
+```
+As we can see that the code gives an error. This is because the compiler assumes that the string ends after the 2nd quotation mark.
+
+This can be solved by using ‘**\**’ (backslash). Backslash acts as an escape character allowing us to use quotation marks in strings.
+
+### Example
+```java
+public class string {
+    public static void main(String[] args) {
+        System.out.println("He said, \"I believe that the Earth is Flat\".");
+        System.out.println("she said, \'But the Earth is spherical\'.");
+    }
+}
+```
+Output
+```
+He said, "I believe that the Earth is Flat".
+she said, 'But the Earth is spherical'.
+```
+
+> Similarly to use a backslash in the string we must escape it with another backslash.
+
+### Example
+```java
+public class string {
+    public static void main(String[] args) {
+        System.out.println("The path is \\home\\aman\\Desktop\\GitHub\\Java-notes-and-codes\\README.md");
+    }
+}
+```
+Output
+```
+The path is \home\aman\Desktop\GitHub\Java-notes-and-codes\README.md
+```
+
+We also have an escape character for printing on a new line(**\n**), inserting a tab(**\t**), backspacing(**\b**), etc.
+
+### Example
+```java
+public class string {
+    public static void main(String[] args) {
+        System.out.println("My name is Peter Parker. \nI'm Spiderman.\nWith great power comes great responsibility.🕷");
+        System.out.println();
+        System.out.println("Age:\t20");
+        System.out.println("Addresss\b: Queens, New York");
+    }
+}
+```
+Output
+```
+My name is Peter Parker. 
+I'm a Spiderman.
+With great power comes great responsibility.🕷
+
+Age:	20
+Address: Queens, New York
+```
 
