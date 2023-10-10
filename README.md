@@ -33,7 +33,8 @@
     - [String Methods](#53-string-methods)
 
 6. Arrays
-    - [](51)
+    - [Array Basics](#61-array-basics)
+    - [Multidimensional Arrays](#62-multidimensional-arrays)
 
 7. Java Methods
     - [](62)
@@ -1421,7 +1422,7 @@ Age:	20
 Address: Queens, New York
 ```
 
-## 5.3 String Methods
+## 5.3. String Methods
  
 
 Here we will see some of the popular methods we can use with strings.
@@ -1491,6 +1492,217 @@ public class string {
 Output
 ```
 THOR: LOVE AND THUNDER @123
+```
+
+[Jump to Index](#table-of-contents)
+
+<br>
+
+## 6.1. Array Basics
+ 
+An array is a container object that holds a fixed number of values of a single type. We do not need to create different variables to store many values, instead we store them in different indices of the same objects and refer them by these indices whenever we need to call them.
+
+### Syntax
+```java
+Datatype[] arrayName = {val1, val2, val3,……. valN};
+
+// > Note: array indexing in java starts from [0].
+```
+ 
+There are two types of arrays in java:
+
+- Single Dimensional Array
+- Multi-Dimensionalal Array
+
+We will see how to perform different operations on both the type of arrays,
+
+#### A. Length of an array
+Finding out the length of an array is very crucial when performing major operations. This is done using the `.length` property:
+
+### Example
+```java
+public class ArrayExample {
+    public static void main(String[] args) {
+        //creating array objects
+        String[] cities = {"Delhi", "Mumbai", "Lucknow", "Pune", "Chennai"};
+        String[] superheros = {"Daredevil", "Flash", "Spiderman", "Aman Kumar Gupta 🤣🤥", "Iron Man", "Dr. Strange", "Black Widow"};
+        int[] numbers = {25,93,48,95,74,63,87,11,36};
+
+        System.out.println("Number of Cities: " + cities.length);
+        System.out.println("Length of Num List: " + numbers.length);
+        System.out.println("Number of Superheros: "+ superheros.length);
+    }
+}
+```
+Output
+```
+Number of Cities: 5
+Length of Num List: 9
+Number of Superheros: 7
+
+``` 
+
+#### B. Accessing array elements
+Array elements can be accessed using indexing. In java, indexing starts from 0 rather than 1.
+
+### Example
+```java
+public class ArrayExample {
+    public static void main(String[] args) {
+        //creating array objects
+        String[] cities = {"Delhi", "Mumbai", "Lucknow", "Pune", "Chennai"};
+        int[] numbers = {25,93,48,95,74,63,87,11,36};
+
+        //accessing array elements using indexing
+        System.out.println(cities[3]);
+        System.out.println(numbers[2]);
+    }
+}
+```
+Output
+```
+Pune
+48
+``` 
+
+#### C. Change array elements
+The value of any element within the array can be changed by referring to its index number.
+
+Example
+```java
+public class Test {
+    public static void main(String[] args) {
+        // creating array objects
+        String[] superheros = { "Daredevil", "Flash", "Spiderman", "Aman Kumar Gupta 🤣🤥", "Iron Man", "Dr. Strange",
+                "Black Widow" };
+
+        System.out.println("superheros[2]: " + superheros[2]);
+        superheros[2] = "Ganesha";
+        System.out.println("superheros[2]: " + superheros[2]);
+    }
+}
+```
+Output
+```
+superheros[2]: Spiderman
+superheros[2]: Ganesha
+```
+
+## 6.2. Multidimensional Arrays
+ 
+
+We can even create multidimensional arrays i.e. arrays within arrays. We access values by providing an index for the array and another one for the value inside it. 
+
+### Example
+```java
+public class ArrayExample {
+    public static void main(String[] args) {
+        //creating array objects
+        String[][] objects = {{"Spoon", "Fork", "Bowl"}, {"Salt", "Pepper"}};
+
+        //accessing array elements using indexing
+        System.out.println(objects[0][2]);
+        System.out.println(objects[1][1]);
+    }
+}
+```
+Output
+```
+Bowl
+Pepper
+``` 
+
+We can also print the multi-dimensional array.
+
+### Example
+```java
+public class ArrayExample {
+    public static void main(String[] args) {
+        //creating array objects
+        int[][] objects = {{1,2,3}, {4,5,6}};
+
+        for (int i = 0; i < objects.length; i++) {
+            for (int j = 0; j < objects[i].length; j++) {
+                  System.out.print(objects[i][j] + "\t");
+            }
+            System.out.println();
+        }    
+    }
+}
+```
+Output
+```
+1    2    3    
+4    5    6    
+``` 
+
+### Use loops with arrays
+
+The simplest way of looping through an array is to use a simple **for-each** loop.
+
+#### Example
+```java
+public class ArrayExample {
+    public static void main(String[] args) {
+        //creating array objects
+        String[] objects = {"Spoon", "Fork", "Bowl", "Salt", "Pepper"};
+
+        for (String i : objects) {
+              System.out.print(i + " ");
+        }
+    }
+}
+```
+Output
+```
+Spoon Fork Bowl Salt Pepper 
+``` 
+
+Alternatively, you can also use a simple for loop to do the same.
+
+#### Example
+```java
+public class ArrayExample {
+    public static void main(String[] args) {
+        //creating array objects
+        String[] objects = {"Spoon", "Fork", "Bowl", "Salt", "Pepper"};
+
+        for (int i = 0; i < objects.length; i++) {
+              System.out.print(objects[i] + " ");
+        }    
+    }
+}
+```
+Output
+```
+Spoon Fork Bowl Salt Pepper 
+```
+
+- Using for-each loop to iterate over a multi-dimensional array 
+
+#### Example 
+
+```java
+public class iterMultiDArray {
+    public static void main(String[] args) {
+        // creating array objects
+        String[][] superheros = { { "Spiderman", "Hulk", "Daredevil", "Flash", "Thor" },
+                { "Black Widow", "Dagger", "Black Canary", "Stargirl", "Wasp" } };
+
+        for (String i[] : superheros) {
+            for (String j : i) {
+                System.out.print(j + " ");
+            }
+            System.out.println();
+        }
+
+    }
+}
+```
+Output
+```
+Spiderman Hulk Daredevil Flash Thor 
+Black Widow Dagger Black Canary Stargirl Wasp
 ```
 
 [Jump to Index](#table-of-contents)
