@@ -30,7 +30,7 @@
 5. Strings
     - [String Basics](#51-string-basics)
     - [Escape Characters](#52-escape-characters)
-    - [String Methods]()
+    - [String Methods](#53-string-methods)
 
 6. Arrays
     - [](51)
@@ -1354,7 +1354,7 @@ Output
 12 Apples
 ```
 
-# 5.2. Escape Characters
+## 5.2. Escape Characters
 
 Try running the code given below in your java compiler.
 ```java
@@ -1366,7 +1366,7 @@ public class string {
 ```
 As we can see that the code gives an error. This is because the compiler assumes that the string ends after the 2nd quotation mark.
 
-This can be solved by using ‘**\**’ (backslash). Backslash acts as an escape character allowing us to use quotation marks in strings.
+This can be solved by using ‘**\\**' (backslash). Backslash acts as an escape character allowing us to use quotation marks in strings.
 
 ### Example
 ```java
@@ -1421,3 +1421,78 @@ Age:	20
 Address: Queens, New York
 ```
 
+## 5.3 String Methods
+ 
+
+Here we will see some of the popular methods we can use with strings.
+
+- `length()`: This method is used to find the length of a string.
+
+### Example
+```java
+public class string {
+    public static void main(String[] args) {
+        String truth = "I am Spiderman !!";
+        System.out.println(truth.length());
+    }
+}
+```
+Output
+```
+17
+``` 
+
+- `indexOf()`: This method returns the first occurrence of a specified character or text in a string.
+
+### Example
+
+```java
+public class string {
+    public static void main(String[] args) {
+        String quote = "To be or not to be";
+        System.out.println(quote.indexOf("be"));    //index of text
+        System.out.println(quote.indexOf("r"));     //index of character
+    }
+}
+```
+Output
+```
+3
+7
+```
+ 
+- `toLowerCase()`: Converts string to lower case characters.
+
+### Example
+```java
+public class string {
+    public static void main(String[] args) {
+        String quote = "THOR: Love and Thunder";
+        System.out.println(quote.toLowerCase()); 
+    }
+}
+```
+Output
+```
+thor: love and thunder
+``` 
+
+- `toUpperCase()`: Converts string to upper case characters.
+
+### Example
+```java
+public class string {
+    public static void main(String[] args) {
+        String quote = "THOR: Love and Thunder @123";
+        System.out.println(quote.toUpperCase());     
+    }
+}
+```
+Output
+```
+THOR: LOVE AND THUNDER @123
+```
+
+[Jump to Index](#table-of-contents)
+
+<br>
