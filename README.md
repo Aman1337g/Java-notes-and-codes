@@ -37,8 +37,9 @@
     - [Multidimensional Arrays](#62-multidimensional-arrays)
 
 7. Java Methods
-    - [](62)
-    - [](61)
+    - [Java Methods](#71-java-methods)
+    - [Method Overloading](#72-method-overloading)
+    - [Recursive Functions](#73-recursive-functions)
 
 8. Java OOPS
     - [](74)
@@ -309,6 +310,8 @@ double|8 byte|±4.9E-324 to ±1.8E308
 [Jump to Index](#table-of-contents)
 
 <br>
+
+# 2. Variables, Operators & User I/O
 
 ## 2.1. Java Variables
 
@@ -722,6 +725,8 @@ Exception in thread "main" java.util.InputMismatchException
 
 <br>
 
+# 3. Conditional Statements
+
 ## 3.1. if Statement
 
 Decision-making involves evaluating a condition to a Boolean value and making a decision based on it. The basic idea revolves around executing the block of code whose condition evaluates to true. Below are the types of decision-making statements:
@@ -942,6 +947,8 @@ Today is Sunday
 [Jump to Index](#table-of-contents)
 
 <br>
+
+# 4. Iteration Statements
 
 ## 4.1. for Loop
 
@@ -1260,6 +1267,8 @@ Output
 
 <br>
 
+# 5. Strings
+
 ## 5.1. String Basics
 Strings in java is a sequence of characters that is enclosed in double quotes (**"**`<string>`**"**). Whenever java comes across a String literal in the code, it creates a string literal with the value of string.
 
@@ -1498,6 +1507,8 @@ THOR: LOVE AND THUNDER @123
 
 <br>
 
+# 6. Arrays
+
 ## 6.1. Array Basics
  
 An array is a container object that holds a fixed number of values of a single type. We do not need to create different variables to store many values, instead we store them in different indices of the same objects and refer them by these indices whenever we need to call them.
@@ -1708,3 +1719,259 @@ Black Widow Dagger Black Canary Stargirl Wasp
 [Jump to Index](#table-of-contents)
 
 <br>
+
+# 7. Java Methods
+
+## 7.1. Java Methods
+
+Methods or Functions are a block of code that accept certain parameters and perform actions whenever they are called. Methods are always written inside a java class and can be called by simply referring to the method name.
+
+### Passing Parameters
+
+Parameters are nothing but the variables that are passed inside the parenthesis of a method. We can pass a single or more than one parameter of different datatypes inside our method.
+
+### Example 1: Passing single parameter
+```java
+public class MethodExample {
+
+    static void Details(String name) {
+        System.out.println("Welcome " + name);
+    }
+    
+    public static void main(String[] args) {
+        Details("Mitali");
+    }
+}
+```
+Output
+```
+Welcome Mitali
+```
+
+### Example 2: Passing multiple parameters
+```java
+public class MethodExample {
+
+    static void Details(String name, int roll, int admno) {
+        System.out.println("Welcome " + name);
+        System.out.println("Your roll number is "+ roll);
+        System.out.println("Your admission number is "+admno);
+    }
+    
+    public static void main(String[] args) {
+        Details("Aman Kumar Gupta", 6, 25813);
+    }
+}
+```
+Output
+```
+Welcome Aman Kumar Gupta
+Your roll number is 6
+Your admission number is 25813
+```
+
+### Example 3: Method with loop
+```java
+public class MethodIf {
+    static int Details(int num) {
+        int fact = 1;
+        for (int i=2; i<=num; i++) {
+            fact = fact * i;
+        }
+        return fact;
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(Details(3));
+        System.out.println(Details(4));
+        System.out.println(Details(5));
+    }
+}
+```
+Output
+```
+6
+24
+120
+```
+
+### Example 4: Method with control statements
+```java
+public class Methodloop {
+       static void Details(int marks) {
+        if (marks < 35) {
+            System.out.println("Fail");
+        } else if (marks >= 35 && marks < 65) {
+            System.out.println("B grade");
+        } else if (marks >= 65 && marks < 75) {
+            System.out.println("A grade");
+        } else if (marks >= 75 && marks < 100) {
+            System.out.println("O grade");
+        } else {
+            System.out.println("Invalid marks entered");
+        }
+    }
+
+    public static void main(String[] args) {
+        Details(25);
+        Details(35);
+        Details(65);
+        Details(60);
+        Details(90);
+        Details(130);
+    }
+}
+```
+Output
+```
+Fail
+B grade
+A grade
+O grade
+B grade
+Invalid marks entered
+```
+
+So what can we make out from e.g.3 and e.g.4? In e.g.3, we have created a method without using the void keyword, this lets us return the value inside the method. Whereas in e.g.4, we have created a method using void keyword, this means that our method won't return a value.
+
+## 7.2. Method Overloading
+
+Method Overloading is when we create multiple methods with the same name but pass different types of parameters inside it. This allows us to load the same methods many times. We only either need to pass a different type or a different number of parameters inside it.
+
+### Example
+
+- Method overloading with different type of parameters
+
+```java
+public class MethodOverloadEx {
+    static void Details(String name, int marks) {
+        System.out.println("Welcome " + name);
+        System.out.println("Your got "+ marks + " marks in exam.\n");
+    }
+    
+    static void Details(String name, double marks) {
+        System.out.println("Welcome " + name);
+        System.out.println("Your got "+ marks + " marks in exam.\n");
+    }
+    
+    public static void main(String[] args) {
+        Details("Mridul Tripathi", 89);
+        Details("Jyotideep Acharjee", 93.5);
+    }
+}
+``` 
+
+Output
+```
+Welcome Mridul Tripathi
+Your got 89 marks in exam.
+
+Welcome Jyotideep Acharjee
+Your got 93.5 marks in exam.
+
+```
+
+- Method overloading with different number of parameters
+
+### Example
+
+```java
+public class MethodOverloadEx {
+    static void superDetails(String name, String realIdentity) {
+        System.out.println("Name: " + name);
+        System.out.println("Real Identity: " + realIdentity);
+        System.out.println();
+    }
+
+    static void superDetails(String name, String realIdentity, String power) {
+        System.out.println("Name: " + name);
+        System.out.println("Real Identity: " + realIdentity);
+        System.out.println("Power: " + power);
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        superDetails("Batman", "Bruce Wayne");
+        superDetails("Superman", "Clark Kent", "Flight, Strength, Speed");
+        superDetails("Flash", "Barry Allen");
+    }
+}
+```
+Output
+```
+Name: Batman
+Real Identity: Bruce Wayne
+
+Name: Superman
+Real Identity: Clark Kent
+Power: Flight, Strength, Speed
+
+Name: Flash
+Real Identity: Barry Allen
+
+```
+
+## 7.3. Recursive Functions
+
+Java allows us to recursively call a method many times, which helps us solve different type of problems.
+
+### Example 1
+```java
+public class RecursiveMethod {
+    
+    static int fact(int num) {
+        if (num != 0)  
+            return num * fact(num-1); 
+        else
+            return 1;
+    }
+
+    public static void main(String[] args) {
+        int num1 = 6, res;
+        res = fact(num1);
+        System.out.println("Factorial of " + num1 + " is " + res);
+    }
+}
+```
+Output
+```
+Factorial of 6 is 720
+```
+
+## Example 2
+```java
+import java.util.Scanner;
+
+public class RecursiveMethod {
+    static int fibo(int n) {
+        if (n == 0)
+            return 0;
+        else if (n == 1)
+            return 1;
+        else
+            return fibo(n - 1) + fibo(n - 2);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of terms in series : ");
+        int n = sc.nextInt();
+        System.out.print("Fibonacci series containing " + n + " terms : ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(fibo(i) + " ");
+        }
+
+        sc.close();
+    }
+}
+```
+Output
+```
+Enter number of terms in series : 6
+Fibonacci series containing 6 terms : 0 1 1 2 3 5 
+```
+
+[Jump to Index](#table-of-contents)
+
+<br>
+
