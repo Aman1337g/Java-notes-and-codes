@@ -42,7 +42,7 @@
     - [Recursive Functions](#73-recursive-functions)
 
 8. Java OOPS
-    - [](74)
+    - [Object & Class](#81-object--class)
     - [](73)
     - [](72)
     - [](71)
@@ -1974,4 +1974,239 @@ Fibonacci series containing 6 terms : 0 1 1 2 3 5
 [Jump to Index](#table-of-contents)
 
 <br>
+
+# 8. Java OOPS
+
+## 8.1. Object & Class
+
+OOP’s stands for Object Oriented Programming. It is a concept of using objects in programming to implement real-world entities. OOP provides a clear syntax for our code making it easier to execute the code.
+
+The key concepts in OOP include:
+
+- Object & Class
+- Inheritance
+- Polymorphism
+- Abstraction
+- Encapsulation
+ 
+
+### **Object & Class**
+
+An object can be any **real-world entity** such as a book, cupboard, pen, paper, fan, student, dog etc. While a class is a group of objects with similar properties.
+
+An *object is an instance* of a class while a *class is a blueprint* from which we create objects.
+
+i. Different ways to create objects
+
+Let’s how we can create a class and from it, create an object.
+
+Syntax to create object from class:
+```java
+className objectName = new className();
+```
+### Example
+```java
+public class Example1 {
+    
+    String name = "Aman Kumar Gupta";
+    int age = 20;
+    String college = "IIIT Bhubaneswar";
+
+    public static void main(String[] args) {
+        Example1 ex = new Example1();
+        ex.setCollege();
+        System.out.println("Name: " + ex.name);
+        System.out.println("Age: " + ex.age);
+        System.out.println("College: " + ex.college);
+    }
+}
+
+```
+Output
+```
+Enter your college name: IIIT Bhubaneswar
+Name: Aman Kumar Gupta
+Age: 20
+College: IIIT Bhubaneswar
+``` 
+
+In the above example, first we create a class using the class keyword. We have named our class **Example1**. Now in order to create an object from **Example1** class we will use the `new` keyword. `new` keyword allocates heap memory to object at run time.
+
+We can even create multiple instances of the same class.
+
+### Example2
+```java
+public class Example2 {
+
+    String name = "Aman Kumar Gupta";
+    int age = 20;
+    String college = "IIIT Bhubaneswar";
+
+    public static void main(String[] args) {
+        Example2 ex1 = new Example2();
+        Example2 ex2 = new Example2();
+        ex2.name = "Shobhan Parida";
+        ex2.college = "IIT Bhubaneswar";
+        System.out.println("Name: " + ex1.name);
+        System.out.println("Age: " + ex1.age);
+        System.out.println("College: " + ex1.college);
+        System.out.println();
+        System.out.println("Name: " + ex2.name);
+        System.out.println("Age: " + ex2.age);
+        System.out.println("College: " + ex2.college);
+    }
+}
+```
+Output
+```
+Name: Aman Kumar Gupta
+Age: 20
+College: IIIT Bhubaneswar
+
+Name: Shobhan Parida
+Age: 20
+College: IIT Bhubaneswar
+```
+This example is similar to the previous example, i.e. we get same output. But the difference is that, in this example, we have created two instances of the same class while in the previous example only one single instance was created.
+
+Finally, we can program our code in one class and call it as an object in the `main()` method of another class. This helps us organize our code thus making it easy to use, detect errors, modify, etc.
+
+ii. Class attributes/fields
+
+Class attributes are the variables created inside a class.
+
+### Example3
+```java
+public class Example3 {
+    String name = "Aman Kumar Gupta";
+    int age = 20;
+}
+```
+Here **name** and **age** are attributes or fields of class Example3.
+
+We have already seen how to access these attributes in previous examples, i.e. we create object and access the attribute of that object using (**.**) (dot / member_access) operator .
+
+### Example4
+```java
+public class Example4 {
+
+    String name = "Aman Kumar Gupta";
+    int age = 20;
+    
+    public static void main(String[] args) {
+        Example1 ex = new Example1();
+        System.out.println("Name: " + ex.name);
+        System.out.println("Age: " + ex.age);
+    }
+}
+```
+But the attributes declared in the class can be overridden in the main() method.
+
+### Example5
+```java
+public class Example5 {
+
+    String name = "Pratyush Kurhe";
+    int age = 20;
+    
+    public static void main(String[] args) {
+        Example1 ex = new Example1();
+        ex.age = 25;
+        System.out.println("Name: " + ex.name);
+        System.out.println("Age: " + ex.age);
+    }
+}
+```
+Output
+```
+Name: Pratyush Kurhe
+Age: 25
+```
+
+As we can see, we changed the value of age attribute in the main method and the output was affected by it. But what if we don’t want the main method to override any declared value?
+
+This can be done using the `final` keyword. Essentially what final keyword does is that, once the attribute holds certain value, then it cannot be overridden.
+
+Example5
+```java
+public class Example6 {
+
+    final String name = "Aman Kumar Gupta";
+    final int age = 20;
+    
+    public static void main(String[] args) {
+        Example6 ex = new Example1();
+        ex.name = "Shubham Kumar Chaudhary";
+        ex.age = 25;
+        System.out.println("Name: " + ex.name);
+        System.out.println("Age: " + ex.age);
+    }
+}
+```
+Output
+```
+Example6.java:8: error: cannot assign a value to final variable name
+        ex.name = "Shubham Kumar Chaudhary";
+          ^
+Example6.java:9: error: cannot assign a value to final variable age
+        ex.age = 25;
+          ^
+2 errors
+```
+
+iii. Class Methods
+
+Methods are a block of code that accept certain parameters and perform actions whenever they are called. Methods are always written inside a java class and can be called by simply referring to the method name.
+
+In java we have public and static methods. So what is the difference 💡?
+
+> public methods are accessed by making objects of the class whereas static methods do not need objects to be accessed, we can directly access static methods.
+
+### Example7
+
+```java
+public class Example7 {
+    //public method
+    public void fruits() {
+        String fruits[] = {"Apple", "Banana", "Mango", "Strawberry"};
+        System.out.println("Fruits:");
+        for (int i=0; i<fruits.length; i++) {
+            System.out.println(fruits[i]);
+        }
+    }
+    
+    //static method
+    static void vegetables() {
+        String vegies[] = {"Onion", "Potato", "Carrot", "Raddish"};
+        System.out.println("Vegetables:");
+        for (int i=0; i<vegies.length; i++) {
+            System.out.println(vegies[i]);
+        }
+    }
+    
+    public static void main(String[] args) {
+        Example7 ex7 = new Example7();        //need to create object
+        ex7.fruits();
+        System.out.println();
+        
+        vegetables();                        // no need to create object
+    }
+}
+```
+Output
+```
+Fruits:
+Apple
+Banana
+Mango
+Strawberry
+
+Vegetables:
+Onion
+Potato
+Carrot
+Raddish
+```
+
+As we can see, we have created two methods, inside which each of the method has array and for loop to print them. But *public method needs an object to be declared in the **main()** method* while *we can directly use the static method inside the **main()** method*.
 
