@@ -45,7 +45,7 @@
     - [Object & Class](#81-object--class)
     - [Inheritance](#82-inheritance)
     - [Polymorphism](#83-polymorphism)
-    - [](71)
+    - [Abstraction](#84-abstraction)
 
 9. File Handling
     - [](82)
@@ -2475,3 +2475,102 @@ I'm Painting with Blue color.
 
 Child classes have overridden the method of attribute parent class. Hence, when we create object of child class, then the method inside the child class is executed because it has more priority.
 
+## 8.4. Abstraction
+
+Data abstraction refers to the process of hiding low level details and only displaying important information. The `abstract` keyword is used to declare abstract classes. Abstract classes can have abstract and non-abstract methods.
+
+Abstraction is achieved with the help of abstract classes and interfaces:
+
+### i. Abstract Classes and Abstract Methods
+
+Abstraction can be implemented only if we inherit the class from another class.<br>
+Inside the abstract class, when we create an abstract method, we use a semicolon (;) instead of curly brackets ({}).
+
+### Example
+```java
+abstract class Fruits {
+    public abstract void taste();
+    public void eat() {
+        System.out.println("Let's eat Fruits.");
+    }
+}
+
+class Mango extends Fruits {
+    public void taste() {
+        System.out.println("Mango is sweet.");
+    }
+}
+
+class Lemon extends Fruits {
+    public void taste() {
+        System.out.println("Lemon is sour.");
+    }
+}
+
+public class Example3 {
+    public static void main(String[] args) {
+        Mango m = new Mango();
+        m.eat();
+        m.taste();
+    }
+}
+```
+Output
+```
+Let's eat Fruits.
+Mango is sweet.
+Let's eat Fruits.
+Lemon is sour.
+```
+
+We have an abstract class Fruits that has an abstract method **taste()** and a regular method **eat()**. We cannot directly create object of fruit class.<br>
+First, we inherit methods of the fruit class into the Mango class, Lemon class and access the abstract method through it.<br>
+Lastly, we create an object of the inherited class to use the abstract methods.<br>
+Thus we can see that the implementation of the class can be kept hidden from the end user.
+
+### ii. Interfaces
+
+Interface in java is mainly used to achieve abstraction. We use the `implements` keyword to implement an interface. 
+
+### Example
+```java
+interface Fruits {
+    public abstract void taste();
+    public void eat();
+}
+
+class Mango implements Fruits {
+    
+    public void taste() {
+        System.out.println("Mango is sweet.");
+    }
+    
+    public void eat() {
+        System.out.println("Let's eat Fruits.");
+    }
+}
+
+public class Example4 {
+    public static void main(String[] args) {
+        Mango m = new Mango();
+        m.eat();
+        m.taste();
+    }
+}
+``` 
+Output
+```
+Let's eat Fruits.
+Mango is sweet.
+```
+
+As we can see, implementing an interface is not that different from creating and abstract class and method. So what is the main difference between an abstract class and an interface?
+
+|Abstract Class|Interface|
+|---|---|
+`abstract` keyword is used to create abstract class.|`Interface` keyword is used to create an interface.
+Abstract class is implemented using `extends` keyword.|Interface is implemented using `implements` keyword.
+Can extend another class or interface.|Can only extend an interface.
+Can provide implementation of interface.|Cannot provide implementation of interface.
+Does not support multiple inheritance.|Supports multiple inheritance.
+Has abstract and non-abstract methods.|Has default, static and abstract methods.
