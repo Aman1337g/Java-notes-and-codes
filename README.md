@@ -46,6 +46,7 @@
     - [Inheritance](#82-inheritance)
     - [Polymorphism](#83-polymorphism)
     - [Abstraction](#84-abstraction)
+    - [Encapsulation](#85-encapsulation)
 
 9. File Handling
     - [](82)
@@ -2574,3 +2575,95 @@ Can extend another class or interface.|Can only extend an interface.
 Can provide implementation of interface.|Cannot provide implementation of interface.
 Does not support multiple inheritance.|Supports multiple inheritance.
 Has abstract and non-abstract methods.|Has default, static and abstract methods.
+
+## 8.5. Encapsulation
+
+To encapsulate something is to enclose something, in our case, we encapsulate or wrap data into a single unit essentially binding the data and code together.
+
+### i. Get and set methods
+
+We use **set** method to set value of variable and **get** method to get the value of variable.
+
+### Example
+```java
+// filename: Example.java
+
+public class Example {
+    private String name; 
+    private int age; 
+
+      // Getter Methods
+    public String getName() {
+        return name;
+    }
+    public int getAge() {
+        return age;
+    }
+
+      // Setter Methods
+    public void setName(String newName) {
+        this.name = newName;
+    }
+    public void setAge(int newAge) {
+        this.age = newAge;
+    }
+}
+``` 
+
+Here we have get method that takes values of variables and set method that assigns arguments as values to these variables.
+
+```java
+//Filename: Example1.java
+
+public class Example1 {
+
+    public static void main(String[] args) {
+        Example ex = new Example();
+        ex6.setName("Pranav"); 
+        ex6.setAge(21);
+        System.out.println("Name: " + ex.getName());
+        System.out.println("Age: " + ex.getAge());
+    }
+}
+``` 
+
+Here, we make object of class Example. Let’s run this file.
+
+Output
+```
+Name: Pranav
+Age: 21
+``` 
+
+### **Advantages of Encapsulating data**
+
+1. **Data Hiding:** By making class fields private and providing controlled access through methods (getters and setters), encapsulation hides the internal state of an object from the outside. This prevents unauthorized access and manipulation of the object's data.
+
+2. **Control and Validation:** With encapsulation, you can add logic and validation within setter methods to ensure that the data is consistent and follows the desired rules. For example, you can validate input values or enforce constraints.
+
+3. **Flexibility and Maintainability:** Encapsulation makes it easier to modify the internal representation of an object without affecting the external code that uses the object. You can change the internal implementation while keeping the external interface the same.
+
+4. **Code Reusability:** Encapsulation allows you to create reusable components (classes) that can be used in different parts of your code or in other projects. The public interface of the class remains consistent, making it easier to reuse.
+
+5. **Enhanced Security:** By controlling access to data and providing a well-defined interface, you can enhance the security of your code. You can restrict certain operations, perform authentication checks, or implement access control.
+
+6. **Maintainable and Readable Code:** Encapsulation promotes a clean and organized code structure. It makes code more readable and understandable, as external users of a class don't need to know the details of its internal implementation.
+ 
+
+### **Disadvantages of Encapsulating data**
+
+1. **Complexity:** While encapsulation provides a clear separation between the internal data and its access methods, it can introduce some complexity to the code. You need to write additional getter and setter methods, which can lead to more code to maintain.
+
+2. **Performance Overhead:** The use of getter and setter methods might introduce a slight performance overhead compared to direct field access. However, modern Java compilers and runtime optimizations often minimize this impact, and the benefits of encapsulation usually outweigh the performance concerns.
+
+3. **Potential for Over-Encapsulation:** Over-encapsulation, where every field has a getter and setter, can lead to verbose and unnecessary code. Not all fields require getter and setter methods, and overusing them can make the code harder to read and maintain.
+
+4. **Difficulty in Testing:** In some cases, testing can be more challenging because you might need to use getter and setter methods to set up or verify the internal state of objects in unit tests. This can lead to additional testing boilerplate code.
+
+In practice, the advantages of encapsulation often outweigh the disadvantages, and it is considered a best practice in object-oriented programming. Properly applied encapsulation leads to more maintainable, secure, and flexible code, which is easier to work with and less error-prone.
+
+![Jump to Index](#table-of-contents)
+
+<br>
+
+
