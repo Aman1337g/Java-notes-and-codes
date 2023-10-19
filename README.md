@@ -49,8 +49,9 @@
     - [Encapsulation](#85-encapsulation)
 
 9. File Handling
-    - [](82)
-    - [](81)
+    - [File Creation](#91-file-creation)
+    - [Files read/write](#92-files-readwrite)
+    - [File Deletion](#93-file-deletion)
 
 10. Advanced Topics
     - [](91)
@@ -2662,8 +2663,200 @@ Age: 21
 
 In practice, the advantages of encapsulation often outweigh the disadvantages, and it is considered a best practice in object-oriented programming. Properly applied encapsulation leads to more maintainable, secure, and flexible code, which is easier to work with and less error-prone.
 
-![Jump to Index](#table-of-contents)
+[Jump to Index](#table-of-contents)
 
 <br>
 
+# 9. File Handling
+
+## 9.1. File Creation
+
+Java allows us to handle files and perform operations like create, read, write, update, and delete. This is known as File Handling in java. The **java.io** package has all the classes you will require to perform input and output (I/O) in Java. For this tutorial we will be using **File** class from the **java.io** package.
+
+### **A. Create a File**
+
+The **createNewFile()** method is used to create new files in java. This method throws an `IOException` if any error occurs. Hence it is important to write it in a **try…….catch** block.
+
+### Example
+```java
+import java.io.File;  
+import java.io.IOException;
+
+public class CreateFile {
+    public static void main(String[] args) {
+        try {
+            File myObj = new File("students.txt");
+            if (myObj.createNewFile()) {
+                System.out.println("Created Successfully: " + myObj.getName());
+            } else {
+                System.out.println("Sorry, File Exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("Error.....");
+            e.printStackTrace();
+        }
+    }
+}
+```
+Output
+```
+Created Successfully: students.txt
+```
+
+If we re-run the same code again, we get the following message:
+```
+Sorry, File Exists.
+```
+
+## 9.2. Files Read/Write
+ 
+### Read a File
+
+We can also read the contents of a file in java. This is done using the **scanner** class. This method throws an `FileNotFoundException` if any error occurs. Hence it is important to write it in a **try…….catch** block.
+
+### Example
+```java
+import java.io.File;
+import java.io.FileNotFoundException;  
+import java.util.Scanner;
+
+public class ReadFile {
+    public static void main(String[] args) {
+        try {
+            File file = new File("students.txt");
+            Scanner myReader = new Scanner(file);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                System.out.println(data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Error.....");
+            e.printStackTrace();
+        }
+    }
+}
+```
+Output
+```
+```
+
+Here we do not see an output, because the students.txt file created has no content. Let’s read a file which has some content in it.
+
+**File name : Superheros**<br>
+Content
+
+```
+
+1. Superman             11. Aquaman
+2. Batman               12. Hulk
+3. Wonder Woman         13. Doctor Strange
+4. Spider-Man           14. Black Panther
+5. Iron Man             15. Wolverine
+6. Thor                 16. Deadpool
+7. Captain America      17. Green Arrow
+8. Black Widow          18. Ant-Man
+9. The Flash            19. Captain Marvel
+10. Green Lantern       20. Shazam
+
+```
+
+### Example
+```java
+import java.io.File;
+import java.io.FileNotFoundException;  
+import java.util.Scanner;
+
+public class ReadFile {
+    public static void main(String[] args) {
+        try {
+            File file = new File("Superheros.txt");
+            Scanner myReader = new Scanner(file);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                System.out.println(data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Error.....");
+            e.printStackTrace();
+        }
+    }
+}
+``` 
+Output
+```
+
+1. Superman             11. Aquaman
+2. Batman               12. Hulk
+3. Wonder Woman         13. Doctor Strange
+4. Spider-Man           14. Black Panther
+5. Iron Man             15. Wolverine
+6. Thor                 16. Deadpool
+7. Captain America      17. Green Arrow
+8. Black Widow          18. Ant-Man
+9. The Flash            19. Captain Marvel
+10. Green Lantern       20. Shazam
+
+```
+
+### Write a File
+
+We use the **FileWriter** class to write into a file in java.
+
+### Example
+```java
+import java.io.FileWriter;  
+import java.io.IOException;
+
+public class WriteFile {
+    public static void main(String[] args) {
+        try {
+            FileWriter file = new FileWriter("Teachers.txt");
+            file.write("This file has information of Teachers\n");
+            file.write("Name: Aman Kumar Gupta, Age: 20\n");
+            file.write("Name: Riya Yadav, Age: 21");
+            file.close();
+            System.out.println("File has been written into.");
+        } catch (IOException e) {
+            System.out.println("Error......");
+            e.printStackTrace();
+        }
+    }
+}
+``` 
+
+Output
+```
+File has been written into.
+```
+
+## 9.3. File Deletion
+
+Deleting files is easy in java, just write an **if…..else** block and use the **delete()** method inside it.
+
+### Example
+
+```java
+import java.io.File;
+
+public class DeleteFile {
+    public static void main(String[] args) {
+        File file = new File("students.txt"); 
+        if (file.delete()) { 
+            System.out.println("Deleted Sccessfully: " + file.getName());
+        } else {
+            System.out.println("Error......");
+        } 
+    }
+}
+```
+Output
+```
+Deleted Sccessfully: students.txt
+```
+
+[Jump to Index](#table-of-contents)
+
+<br>
 
