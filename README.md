@@ -54,7 +54,8 @@
     - [File Deletion](#93-file-deletion)
 
 10. Advanced Topics
-    - [](91)
+    - [Exception Handling](#101-exception-handling)
+    - [Regex]()
 
 
 # 1. Introduction
@@ -2859,4 +2860,194 @@ Deleted Sccessfully: students.txt
 [Jump to Index](#table-of-contents)
 
 <br>
+
+# 10. Advanced Topics
+
+## 10.1. Exception Handling
+
+Sometimes, while executing programs, we get errors that influence the normal working of the program. Such errors are called exceptions and the method used to deal with these exceptions is known as exception handling.
+
+Exceptions are of two types:
+
+- Built-in exception
+- User-defined exception
+
+Built-in exceptions are available in Java libraries. These predefined exceptions can be used to explain certain error situations.
+
+Users can also create their own exception class and throw that exception using `throw` keyword. These exceptions are known as user-defined or custom exceptions.
+
+### **A. Exception Keywords**
+
+Exception handling is done with the help of these keywords:
+
+- `try`: the try block is always accompanied by a catch or finally block. Try block is where the exception is generated.
+- `catch`: catch block handles the exception that is generated in the try block.
+- `finally`: finally is always executed whether there is an exception or not.
+- `throw`: it is used to throw a single exception.
+- `throws`: it declares which type of exception might occur.
+ 
+
+**B. Examples**
+
+### a. try…..catch
+```java
+public class TryCatch {
+    public static void main(String[] args) {
+        try {
+            int result = 36/0;
+        } catch(ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+``` 
+
+Output
+```
+Error: / by zero
+``` 
+
+### b. multiple catch
+```java
+public class MultipleCatch {
+    public static void main(String[] args) {
+        try {
+            String aman = null;
+            int length = aman.length();
+            int result = 36 / 0;
+        } catch (NullPointerException e1) {
+            System.out.println("Caught NullPointerExcption: " + e1.getMessage());
+        } catch (ArithmeticException e2) {
+            System.out.println("Caught ArithmeticException: " + e2.getMessage());
+        } catch (Exception e) {
+            System.out.println("Caught other Exception: " + e.getMessage());
+        }
+        System.out.println("Program continues after the catch block...");
+    }
+}
+``` 
+Output
+```
+Caught NullPointerExcption: Cannot invoke "String.length()" because "<local1>" is null
+Program continues after the catch block...
+``` 
+
+### c. try…..finally
+
+```java
+public class TryFinally {
+    public static void main(String[] args) {
+        try {
+            int result = 36/0;
+        } finally {
+            int result = 36/6;
+            System.out.println("Finally block result:" + result);
+        }
+    }
+}
+```
+Output
+```
+Finally block result:6
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+    at javaFiles/ExceptionHandling.TryFinally.main(TryFinally.java:6)
+``` 
+
+### d. try……catch…..finally
+
+```java
+public class TryCatchFinally {
+    public static void main(String[] args) {
+        try {
+            int result = 36/0;
+        } catch(ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            int result = 36/6;
+            System.out.println("Finally block result:" + result);
+        }
+    }
+}
+```
+Output
+```
+Error: / by zero
+Finally block result:6
+``` 
+
+### e. throws
+
+In Java, the `throws` keyword is used in method declarations to indicate that a method might throw a specific exception. It is part of the method signature and is used to inform the caller of the method that they should handle the specified exception or allow it to propagate up the call stack. Here's an example:
+
+```java
+import java.io.IOException;
+
+public class ThrowsExample {
+    public static void main(String[] args) {
+        try {
+            readFile("example.txt");
+        } catch (IOException e) {
+            System.err.println("An IOException occurred: " + e.getMessage());
+        }
+    }
+
+    public static void readFile(String filename) throws IOException {
+        // Code to read a file
+        // If an IOException occurs, it is not handled here but will be thrown to the caller
+        throw new IOException("File not found");
+    }
+}
+```
+
+In this example:
+
+1. We have a `main` method that calls another method named `readFile`.
+
+2. The `readFile` method is declared with the `throws` clause, indicating that it can throw an `IOException`. This informs the caller of the method that they should be prepared to handle an `IOException`.
+
+3. Inside the `readFile` method, we intentionally throw an `IOException` with the message "File not found."
+
+4. In the `main` method, we call `readFile("example.txt")`. Since `readFile` may throw an `IOException`, we use a `try-catch` block to catch and handle the exception. If an `IOException` is thrown within `readFile`, it will be caught in the `catch` block and an error message will be printed.
+
+The use of `throws` is important when you want to provide information about the exceptions a method may throw to the callers of that method, allowing them to handle those exceptions appropriately.
+
+Another simple example could be :
+
+```java
+public class Throws {
+    public static void example() throws ArithmeticException {
+        int result = 36/0;
+    }
+    public static void main(String[] args) {
+        try {
+            example();
+        } catch (ArithmeticException e) {
+            System.out.println(e);
+        }
+    }
+}
+```
+Output
+```
+java.lang.ArithmeticException: / by zero
+``` 
+
+### f. throw keyword
+
+```java
+public class Throw {
+    public static void example() {
+        throw new ArithmeticException("divide by 0");
+      }
+      public static void main(String[] args) {
+        example();
+      }
+}
+```
+Output
+```
+Exception in thread "main" java.lang.ArithmeticException: divide by 0
+    at javaFiles/ExceptionHandling.Throw.example(Throw.java:5)
+    at javaFiles/ExceptionHandling.Throw.main(Throw.java:9)
+```
 
