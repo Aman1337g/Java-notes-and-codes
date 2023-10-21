@@ -55,7 +55,7 @@
 
 10. Advanced Topics
     - [Exception Handling](#101-exception-handling)
-    - [Regex]()
+    - [Regex](#102-regex)
 
 
 # 1. Introduction
@@ -3051,3 +3051,48 @@ Exception in thread "main" java.lang.ArithmeticException: divide by 0
     at javaFiles/ExceptionHandling.Throw.main(Throw.java:9)
 ```
 
+## 10.2. Regex
+
+Regular Expression also known as Regex are used for text matching. Regular expressions contain a series of characters that searches for data in text.<br>
+The `java.util.regex` package provides following classes for regular expressions:
+
+- **Matcher class**: It is used to perform match operations on character sequence.
+- **Pattern class**: It is used to define a search pattern.
+- **PatternSyntaxException class**: It is used to give syntax error for a regular expression.
+ 
+
+### A. Find range of Characters
+
+Character|Meaning
+|---|---|
+[0-9]|Find character in range 0-9
+[xyz]|Find anyone character x, y or z
+[^xyz]|Find any character other than x, y or z
+ 
+### B. Metacharacters
+
+Character|Meaning
+|---|---|
+\b|Search for a word match
+\d|Searches a digit
+\D|Searches a non-digit
+\s|Searches whitespace
+\S|Searches non-whitespace
+\w|Searches for word characters 0-9, a-z, A-Z
+\W|Searches non-word character
+$|Searches for a match at the end of the string
+a|b|Searches for any one of the given word patterns, i.e a or b
+.|Search just one instance of any character
+^|Searches for a match at the start of the string
+ 
+
+### C. Quantifiers
+
+Character|Meaning
+|---|---|
+a?|Matches zero or one occurrences of string having a
+a+|Matches at least one occurrence of string having a
+a*|Matches zero or more occurrences of string having a
+a{b}|Matches string having a sequence of b a’s
+a{b,c}|Matches string having a sequence of b to c a’s
+a{b,}|Matches string having a sequence of at least b a’s
