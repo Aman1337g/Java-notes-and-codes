@@ -19,10 +19,10 @@ The output of the given code will be the result of the arithmetic addition of th
 
 Here's the breakdown:
 
-'j' has an ASCII value of 106
-'a' has an ASCII value of 97
-'v' has an ASCII value of 118
-'a' has an ASCII value of 97
+'j' has an ASCII value of 106<br/>
+'a' has an ASCII value of 97<br/>
+'v' has an ASCII value of 118<br/>
+'a' has an ASCII value of 97<br/>
 So, the expression 'j' + 'a' + 'v' + 'a' is equivalent to 106 + 97 + 118 + 97, which results in 418.
 
 Output
